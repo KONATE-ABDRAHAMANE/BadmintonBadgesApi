@@ -110,7 +110,7 @@ class EquipeController extends AbstractController
     {
         $equipe = $dm->getRepository(Equipe::class)->find($id);
         if (!$equipe || $equipe->getCoach()->getId() !== $this->getUser()->getId()) {
-            return $this->json(['message' => 'Équipe non trouvée ou non autorisé'], 404);
+            return $this->json(['message' => 'Équipe non trouvée ou non autorisée'], 404);
         }
 
         $data = json_decode($request->getContent(), true);
